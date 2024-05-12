@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     datePickerInput.addEventListener('click', () => {
         datePickerElement.classList.toggle('show');
+        datePickerInput.disabled = true
     });
 
 
@@ -42,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 datePickerDayElement.classList.toggle('selected');
                 datePickerInput.value = DatePicker.formatDate(+datePickerDayElement.innerHTML, currentMonth + 1, currentYear);
+                datePickerInput.disabled = false
                 datePickerElement.classList.toggle('show');
             })
         })
@@ -99,4 +101,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     init()
     datePickerElement.classList.toggle('show');
+    datePickerInput.disabled = false
 });
