@@ -47,6 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 datePickerElement.classList.toggle('show');
             })
         })
+        let currMonth = currentMonth + 1
+        let innerHTMLDayElement = ''
+        if (currentMonth <= 8) {
+            currMonth = '0' + currMonth
+        }
+        if (currentYear == datePickerInput.value.split('/')[0] && currMonth == datePickerInput.value.split('/')[1]) {
+            datePickerDayElements.forEach(datePickerDayElement => {
+                innerHTMLDayElement = datePickerDayElement.innerHTML
+                if (datePickerDayElement.innerHTML.length === 1) {
+                    innerHTMLDayElement = '0' + datePickerDayElement.innerHTML
+                }
+                if (innerHTMLDayElement === datePickerInput.value.split('/')[2]) datePickerDayElement.classList.toggle('selected');
+            })
+        }
     }
 
     const handleMonthIncrement = () => {
