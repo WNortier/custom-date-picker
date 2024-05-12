@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1715515222038" clover="3.2.0">
-  <project timestamp="1715515222038" name="All files">
+<coverage generated="1715516458626" clover="3.2.0">
+  <project timestamp="1715516458626" name="All files">
     <metrics statements="46" coveredstatements="46" conditionals="10" coveredconditionals="8" methods="7" coveredmethods="7" elements="63" coveredelements="61" complexity="0" loc="46" ncloc="46" packages="1" files="1" classes="1"/>
     <file name="date-picker.ts" path="/Users/warwicknortier/Desktop/Date Picker/date-picker.ts">
       <metrics statements="46" coveredstatements="46" conditionals="10" coveredconditionals="8" methods="7" coveredmethods="7"/>

@@ -9,10 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentYear = new Date().getFullYear()
     let currentMonth = new Date().getMonth()
 
-
-
-
-
     const handlebarContentInjector = (elementToAppendTo, template, data) => {
         const compiled = Handlebars.compile(template);
         const hbsString = compiled(data);
@@ -25,32 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
         datePickerElement.classList.toggle('show');
     });
 
-    const handleMonthOrYearChange = () => {
-
-        console.log(currentYear, currentMonth + 1)
-        const days = DatePicker.getDaysInMonth(currentYear, currentMonth + 1);
-        const arrangedDays = DatePicker.arrangeDays(days, DatePicker.getFirstDayOfMonth(currentYear, currentMonth));
-        const datePickerDaysTemplate = document.getElementById('date-picker-template').innerHTML;
-        // console.log(arrangedDays)
-        console.log(datePickerElement, datePickerDaysTemplate, arrangedDays)
-        handlebarContentInjector(datePickerElement, datePickerDaysTemplate, arrangedDays);
-    }
-
 
 
     const init = () => {
         const currentCalendar = document.querySelector('.calendar')
         if (currentCalendar) currentCalendar.remove()
-        // Select the month and year dropdowns
         const monthDropdown = document.querySelector('.date-picker-month');
         const yearDropdown = document.querySelector('.date-picker-year');
-        // Set the value of the dropdowns to the current month and year
         monthDropdown.value = currentMonth;
         yearDropdown.value = currentYear;
-        const days = DatePicker.getDaysInMonth(currentYear, currentMonth + 1);
+        const days = DatePicker.getDaysInMonth(currentYear, currentMonth);
         const arrangedDays = DatePicker.arrangeDays(days, DatePicker.getFirstDayOfMonth(currentYear, currentMonth));
         const datePickerDaysTemplate = document.getElementById('date-picker-template').innerHTML;
-        console.log(arrangedDays)
         handlebarContentInjector(datePickerElement, datePickerDaysTemplate, arrangedDays);
         const datePickerDayElements = document.querySelectorAll('.date-picker-day')
         datePickerDayElements.forEach(datePickerDayElement => {
@@ -59,15 +41,53 @@ document.addEventListener('DOMContentLoaded', () => {
                     datePickerDayElement.classList.remove('selected');
                 })
                 datePickerDayElement.classList.toggle('selected');
-                console.log(+datePickerDayElement.innerHTML, currentMonth, currentYear)
                 datePickerInput.value = DatePicker.formatDate(+datePickerDayElement.innerHTML, currentMonth + 1, currentYear);
                 datePickerElement.classList.toggle('show');
             })
         })
     }
 
+    const handleMonthIncrement = () => {
+        switch (currentMonth) {
+            case 11: {
+                if (currentYear !== 2030) {
+                    currentMonth = 0;
+                    currentYear++
+                    break;
+                }
+                break;
+            }
+            default: {
+                currentMonth++
+                break;
+            }
+        }
+        init()
+    }
+
+    document.querySelector('.date-picker-next').addEventListener(('click'), handleMonthIncrement)
+
+    const handleMonthDecrement = () => {
+        switch (currentMonth) {
+            case 0: {
+                if (currentYear !== 2020) {
+                    currentMonth = 11;
+                    currentYear--
+                    break;
+                }
+                break;
+            }
+            default: {
+                currentMonth--
+                break;
+            }
+        }
+        init();
+    }
+
+    document.querySelector('.date-picker-prev').addEventListener(('click'), handleMonthDecrement)
+
     monthDropDownElement.addEventListener('change', (e) => {
-        console.log(e.target.value)
         currentMonth = +e.target.value;
         init()
     })
