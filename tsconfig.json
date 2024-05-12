@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "ESNext",
+    "strict": true,
+    "outDir": "./dist",
+    "rootDir": "./",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
+  },
+  // Remove the line containing the 'EXCLUDE_FROM_DIST' option
+  "include": ["./**/*.ts", "tests/date-picker.spec.js"],
+  "exclude": ["node_modules"]
+}

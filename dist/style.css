@@ -1,0 +1,149 @@
+@font-face {
+    font-family: EdgeOfTheGalaxyRegular;
+    src: url("./public/EdgeOfTheGalaxyRegular.otf") format("opentype");
+}
+
+body {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%2365b30e' fill-opacity='0.4'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: none;
+    height: 95vh;
+}
+
+.container {
+    height: 100%;
+}
+
+.row {
+    height: 100%;
+}
+
+.col-12 {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    min-height: 400px;
+    min-width: 400px;
+    background: linear-gradient(176deg,rgb(254, 254, 254) 50%,rgb(32,39,55) 100%);
+    opacity: 0.9;
+    padding: 20px;
+    border: 1px solid rgb(188, 192, 201);
+    border-radius: 7px;
+}
+
+.form:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Gentle box shadow */
+}
+
+.form-heading {
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
+    font-family: EdgeOfTheGalaxyRegular;
+}
+
+.form-content {
+    position: relative;
+}
+
+/* #date-picker {
+    display: inline-block;
+    z-index: 10;
+} */
+
+.date-picker-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid rgb(188, 192, 201);
+}
+
+.date-picker {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(188, 192, 201);
+    background: #fff;
+    /* position: absolute; */
+}
+
+.show {
+    display: none;
+}
+
+.date-picker-input:hover {
+    cursor: pointer;
+}
+
+.date-picker-input:focus {
+    border: 1px solid rgb(188, 192, 201);
+    outline: none;
+}
+
+.date-label {
+    margin-right: auto
+}
+
+.date-picker-days {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px
+}
+
+.date-picker-day-label {
+    width: 30px;
+    height: 30px;
+}
+
+.date-picker-day {
+    width: 30px;
+    height: 30px;
+}
+
+.selected {
+    background: #65b30e;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.date-picker-month{
+    padding: 2.25px;
+}
+
+.date-picker-year{
+    padding: 2.25px;
+}
+
+.coverage-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+}
+
+.coverage-button:hover {
+    position: absolute;
+    bottom: 53px;
+    right: 50px;
+}

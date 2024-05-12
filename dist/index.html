@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="./public/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./public/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="simple-grid.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="date-picker.js" type="module"></script>
+    <script src="index.js" type="module"></script>
+    <title>Warwicks Date Picker</title>
+    <script id="date-picker-template" type="text/x-handlebars-template">
+        <div class="calendar">
+            {{#each this}}
+                <div class="date-picker-days">
+                    {{#each this}}
+                    {{#if this}}
+                    <button class="date-picker-day" type="button" aria-label="">{{this}}</button>
+                    {{else}}
+                    <button class="date-picker-day" type="button" aria-label="" style="visibility: hidden;" disabled>x</button>
+                    {{/if}}
+                    {{/each}}
+                </div>
+            {{/each}}
+        </div>
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form class="form">
+                    <h1 class="form-heading">Date Picker</h1>
+                    <div class="form-content">
+                        <label class="date-label" for="date">Date:</label>
+                        <input class="date-picker-input" type="text" id="date" name="date" value="YYYY/MM/DD">
+                        <div class="date-picker">
+                            <nav>
+                                <button class="date-picker-prev" type="button" aria-label="Previous month">&lt;</button>
+                                <button class="date-picker-next" type="button" aria-label="Next month">&gt;</button>
+                                <select class="date-picker-month" aria-label="Month">
+                                    <option value="0">January</option>
+                                    <option value="1">February</option>
+                                    <option value="2">March</option>
+                                    <option value="3">April</option>
+                                    <option value="4">May</option>
+                                    <option value="5">June</option>
+                                    <option value="6">July</option>
+                                    <option value="7">August</option>
+                                    <option value="8">September</option>
+                                    <option value="9">October</option>
+                                    <option value="10">November</option>
+                                    <option value="11">December</option>
+                                </select>
+                                <select class="date-picker-year" aria-label="Year">
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
+                                    <option value="2027">2027</option>
+                                    <option value="2028">2028</option>
+                                    <option value="2029">2029</option>
+                                    <option value="2030">2030</option>
+                                </select>
+                            </nav>
+                            <hr />
+
+
+
+                            <div class="date-picker-days">
+                                <button class="date-picker-day-label" disabled>S</button>
+                                <button class="date-picker-day-label" disabled>M</button>
+                                <button class="date-picker-day-label" disabled>T</button>
+                                <button class="date-picker-day-label" disabled>W</button>
+                                <button class="date-picker-day-label" disabled>T</button>
+                                <button class="date-picker-day-label" disabled>F</button>
+                                <button class="date-picker-day-label" disabled>S</button>
+                            </div>
+                            <!-- <div class="date-picker-days">
+                                <button class="date-picker-day" type="button" aria-label=""
+                                    style="visibility: hidden;">1</button>
+                                <button class="date-picker-day" type="button" aria-label=""
+                                    style="visibility: hidden">1</button>
+                                <button class="date-picker-day" type="button" aria-label="">1</button>
+                                <button class="date-picker-day" type="button" aria-label="">2</button>
+                                <button class="date-picker-day" type="button" aria-label="">3</button>
+                                <button class="date-picker-day" type="button" aria-label="">4</button>
+                                <button class="date-picker-day" type="button" aria-label="">5</button>
+
+
+
+                            </div> -->
+
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <a href="http://127.0.0.1:5500/coverage/lcov-report/index.html" class="coverage-button">View Test
+            Coverage Report</a>
+    </div>
+</body>
+
+</html>
