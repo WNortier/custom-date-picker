@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const datePickerElement = document.querySelector('.date-picker');
     const monthDropDownElement = document.querySelector('.date-picker-month')
     const yearDropDownElement = document.querySelector('.date-picker-year')
+    const datePickerNext = document.querySelector('.date-picker-next')
+    const datePickerPrev = document.querySelector('.date-picker-prev')
     let currentYear = new Date().getFullYear()
     let currentMonth = new Date().getMonth()
 
@@ -17,14 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
         elementToAppendTo.appendChild(div);
     };
 
+    const init = () => {
+        prepareCalendar()
+        addClickListenersToCalendarDays()
+        highlightSelectedDateIfPreviouslySelected()
+    }
+
     datePickerInput.addEventListener('click', () => {
         datePickerElement.classList.toggle('show');
         datePickerInput.disabled = true
     });
 
-
-
-    const init = () => {
+    const prepareCalendar = () => {
         const currentCalendar = document.querySelector('.calendar')
         if (currentCalendar) currentCalendar.remove()
         const monthDropdown = document.querySelector('.date-picker-month');
@@ -35,6 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const arrangedDays = DatePicker.arrangeDays(days, DatePicker.getFirstDayOfMonth(currentYear, currentMonth));
         const datePickerDaysTemplate = document.getElementById('date-picker-template').innerHTML;
         handlebarContentInjector(datePickerElement, datePickerDaysTemplate, arrangedDays);
+    }
+
+    const addClickListenersToCalendarDays = () => {
         const datePickerDayElements = document.querySelectorAll('.date-picker-day')
         datePickerDayElements.forEach(datePickerDayElement => {
             datePickerDayElement.addEventListener('click', () => {
@@ -47,6 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 datePickerElement.classList.toggle('show');
             })
         })
+    }
+
+    const highlightSelectedDateIfPreviouslySelected = () => {
+        const datePickerDayElements = document.querySelectorAll('.date-picker-day')
         let currMonth = currentMonth + 1
         let innerHTMLDayElement = ''
         if (currentMonth <= 8) {
@@ -81,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         init()
     }
 
-    document.querySelector('.date-picker-next').addEventListener(('click'), handleMonthIncrement)
+    datePickerNext.addEventListener(('click'), handleMonthIncrement)
 
     const handleMonthDecrement = () => {
         switch (currentMonth) {
@@ -101,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         init();
     }
 
-    document.querySelector('.date-picker-prev').addEventListener(('click'), handleMonthDecrement)
+    datePickerPrev.addEventListener(('click'), handleMonthDecrement)
 
     monthDropDownElement.addEventListener('change', (e) => {
         currentMonth = +e.target.value;
